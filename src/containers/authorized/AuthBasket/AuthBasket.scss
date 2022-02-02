@@ -1,0 +1,226 @@
+@import '../../../variables';
+
+.auth-basket {
+
+  &__header-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    margin-left: -16px;
+  }
+
+  &__header-inner {
+    flex: 0 0 auto;
+    padding-left: 16px;
+    width: 100%;
+  }
+
+  &__header {
+    margin: 48px 0 28px 0;
+  }
+
+  &__header-text {
+    font-size: 28px;
+    line-height: 36px;
+    font-weight: 500;
+    color: #212121;
+  }
+
+  &__header-nav {
+    height: 40px;
+    margin-top: 20px;
+    width: 62.5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  ////////////label//////////////
+
+  &__header-label {
+    font-size: 16px;
+    line-height: 22px;
+
+    &:hover .auth-basket__header-select-checkbox {
+      background-color: #f5f5f5;
+      border-color: #ababab;
+    }
+
+
+    &:hover .auth-basket__header-select-checkbox_selected {
+      background-color: $yellow-dark-hover;
+      border-color: $yellow-dark-hover;
+      box-shadow: none;
+    }
+  }
+
+  &__header-label-wrapper {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  &__header-select-all-text {
+    padding-left: 8px;
+    user-select: none;
+  }
+
+  &__header-select-checkbox {
+    width: 18px;
+    height: 18px;
+    font-size: 18px;
+    background-color: #fff;
+    border-radius: 3px;
+    transform: scale(1);
+    flex: 0 0 auto;
+    position: relative;
+    border: 2px solid #ccc;
+    transition-property: background-color, border-color;
+    transition-timing-function: ease-in-out;
+    transition-duration: .12s;
+
+    &_selected {
+      background-color: $yellow;
+      border-color: $yellow;
+    }
+
+    &_selected .auth-basket__header-select {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  &__header-select {
+    opacity: 0;
+    transform: translateY(-5px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition-property: opacity, transform;
+    transition-duration: .12s;
+    transition-timing-function: ease-in-out;
+
+    &::before {
+      content: '';
+      position: absolute;
+      z-index: 1;
+      border-color: #000;
+      top: 50%;
+      left: 50%;
+      width: 40%;
+      height: 60%;
+      border-style: solid;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg) translate(-100%, -25%) scale(1);
+    }
+  }
+
+  ////////////button//////////////
+  &__header-button {
+    height: 40px;
+    padding: 0 16px;
+    border-width: 1px;
+    transition: all .12s ease-out;
+    letter-spacing: 0;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 38px;
+    color: $blue;
+  }
+
+  &__header-icon {
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    display: inline-block;
+    object-fit: contain;
+    fill: currentColor;
+  }
+
+  &__header-delete {
+    margin-left: 7px;
+  }
+
+//////////////////products/////////////////////////
+
+  &__products-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    margin-left: -16px;
+  }
+
+/////////////////////goods//////////////////////////
+
+  &__goods {
+    width: 62.5%;
+    padding-left: 16px;
+    flex: 0 0 auto;
+  }
+
+//////////////////////separator///////////////////////
+  &__products-separator {
+    width: 4.166666666666667%;
+    flex: 0 0 auto;
+    padding-left: 16px;
+  }
+
+//////////////////making an order////////////////////
+
+  &__products-cheque-wrapper {
+    width: 33.333333333333336%;
+    flex: 0 0 auto;
+    padding-left: 16px;
+  }
+
+//////////////////information//////////////////////
+  &__inform-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    margin-left: -16px;
+  }
+
+  &__inform-inner {
+    flex: 0 0 auto;
+    padding-left: 16px;
+    width: 100%;
+  }
+
+  &__inform-internal {
+    margin: 60px 0 20px 0;
+  }
+
+  &__inform-block {
+    font-size: 13px;
+    line-height: 20px;
+    color: #898f97;
+  }
+
+  &__inform-details {
+    color: $blue;
+    transition: color .12s ease-out;
+
+    &:hover {
+     color: #c70000;
+    }
+  }
+
+  &__inform-support {
+    color: #222;
+    transition: color .12s ease-out;
+
+    &:hover {
+      color: #898f97;
+    }
+  }
+
+  &__inform-phone {
+    display: inline-flex;
+    align-items: center;
+    font-weight: 700;
+  }
+}

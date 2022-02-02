@@ -1,0 +1,83 @@
+@import '../../../../../variables';
+
+.footer-three-upper-right-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-left: auto;
+
+  &__advisor-link {
+    display: flex;
+    align-items: center;
+
+    & > div {
+      width: 36px;
+      height: 36px;
+      border-radius: 5px;
+      background-image: url('../../../../../static/images/navigation/footer/cart-white.png');
+      background-size: contain;
+      background-color: rgba(116, 230, 246, 0.8);
+    }
+
+    & > p {
+      margin: 0 1px 0 12px;
+      color: #454545;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 20px;
+
+      & > span {
+        font-weight: 400;
+        color: $blue;
+      }
+    }
+  }
+
+  &__offers-and-shops {
+    font-size: 11px;
+    line-height: 16px;
+    color: #999;
+    margin: 20px 0 0;
+
+    & > a {
+      color: #999;
+      transition: color .1s ease-out;
+
+      &:hover {
+        color: red;
+      }
+    }
+  }
+
+  &__icons-links {
+    margin-top: 20px;
+
+    & > a {
+      display: inline-block;
+      width: 24px;
+      height: 26px;
+      margin: 0 12px 0 0;
+      opacity: .17;
+      transition: opacity .25s ease-out;
+      background-repeat: no-repeat;
+      background-size: cover;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__icon-facebook {
+    background-image: url('../../../../../static/images/navigation/footer/facebook-icon.png');
+  }
+
+  &__icon-vk {
+    background-image: url('../../../../../static/images/navigation/footer/vk-icon.png');
+  }
+
+  &__icon-inst {
+    background-image: url('../../../../../static/images/navigation/footer/instagramm-icon.png');
+  }
+}

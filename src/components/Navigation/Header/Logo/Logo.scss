@@ -1,0 +1,20 @@
+.logo {
+  width: 167px;
+  background-image: url('../../../../static/images/navigation/header/yandex_market.png');
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: 167px 32px;
+  display: flex;
+
+  &__yandex-link {
+    display: inline-block;
+    width: 30px;
+    height: 32px;
+  }
+
+  &__market-link {
+    display: inline-block;
+    width: 137px;
+    height: 32px;
+  }
+}

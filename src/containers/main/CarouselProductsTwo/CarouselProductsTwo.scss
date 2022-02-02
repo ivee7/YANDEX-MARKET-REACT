@@ -1,0 +1,70 @@
+@import '../../../variables';
+
+.carousel-products-two {
+
+  &__wrapper {
+    margin-bottom: 8px;
+    margin-top: 20px;
+    background: none;
+  }
+
+
+
+  &__title {
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+  }
+
+  &__title-wrapper {
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__title-name {
+    margin-right: 4px;
+    font-size: 28px;
+    line-height: 36px;
+    font-weight: 500;
+    color: #212121;
+  }
+
+  &__title-link {
+    color: $blue;
+    font-weight: 400;
+    transition: color .12s ease-out;
+    font-size: 14px;
+    line-height: 20px;
+
+    &:hover {
+      color: $red-dark-hover;
+    }
+  }
+
+
+
+
+  &__goods {
+    position: relative;
+  }
+
+  &__goods-outer {
+    margin: -10px;
+    padding: 10px;
+    overflow: hidden;
+  }
+
+  &__goods-inner {
+    margin: -100px -8px;
+    padding: 100px 0;
+    overflow-y: auto;
+  }
+
+  &__goods-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: stretch;
+  }
+}

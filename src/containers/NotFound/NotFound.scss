@@ -1,0 +1,58 @@
+@import '../../variables';
+
+.main-not-found {
+
+  &__wrapper {
+    width: 546px;
+    margin: 68px auto;
+    text-align: center;
+    color: #212121;
+  }
+
+  &__img {
+    height: 200px;
+  }
+
+  &__header {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 32px;
+    margin-top: 16px;
+  }
+
+  &__section {
+    font-size: 16px;
+    line-height: 24px;
+    margin-top: 12px;
+  }
+
+  &__link {
+    margin-top: 20px;
+  }
+
+  &__link-wrapper {
+    display: inline-block;
+  }
+
+  &__link-to-the-main-page {
+    height: 44px;
+    padding: 0 16px;
+    line-height: 36px;
+
+    &:hover .main-not-found__link-span {
+      color: #c70000;
+    }
+
+    &:active .main-not-found__link-span {
+      color: $red-hover;
+    }
+  }
+
+  &__link-span {
+    vertical-align: middle;
+    color: $blue;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 44px;
+  }
+}

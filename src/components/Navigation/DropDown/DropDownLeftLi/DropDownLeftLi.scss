@@ -1,0 +1,50 @@
+.drop-down-left-li {
+  padding: 0 8px 0 11px;
+  border-radius: 4px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  text-align: left;
+  user-select: none;
+  background: transparent;
+
+  &_hovered {
+    background-color: #f4f4f4;
+  }
+
+  &__link {
+    flex-grow: 1;
+    padding: 8px 0;
+    max-width: 100%;
+    line-height: 14px;
+    color: #000;
+    display: flex;
+    align-items: center;
+
+    &::after {
+      content: '';
+      width: 20px;
+      height: 20px;
+      opacity: .2;
+      background-image: url('../../../../static/images/navigation/dropDown/arrow_right_ios_black_24dp.png');
+      background-size: contain;
+    }
+  }
+
+  &__image {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    vertical-align: middle;
+    object-fit: contain;
+  }
+
+  &__title {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    font-size: 15px;
+  }
+}

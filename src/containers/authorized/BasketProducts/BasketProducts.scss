@@ -1,0 +1,26 @@
+.basket-goods {
+
+  &__section {
+    margin-bottom: 20px;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 10px;
+    background-color: #f3f2fc;
+    border-radius: 7px;
+  }
+
+  &__title {
+    vertical-align: middle;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 23px;
+    color: #212121;
+  }
+
+  &__products-wrapper {
+    padding: 0 24px;
+  }
+}

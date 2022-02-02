@@ -1,0 +1,23 @@
+.mini-suggest-overlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  cursor: pointer;
+  background-color: rgba(31, 31, 32, .22);
+  opacity: 0;
+  transition: opacity .2s ease-out;
+  visibility: hidden;
+
+  &_focused {
+    z-index: 109;
+    opacity: .8;
+    visibility: visible;
+
+    &:hover {
+      opacity: 1;
+      transition-duration: .1s;
+    }
+  }
+}

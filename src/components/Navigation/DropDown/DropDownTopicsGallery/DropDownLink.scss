@@ -1,0 +1,7 @@
+.drop-down-link {
+  transition: color .25s;
+
+  &:hover {
+    color: red;
+  }
+}

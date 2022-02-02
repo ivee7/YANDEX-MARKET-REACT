@@ -1,0 +1,49 @@
+@import '../../../variables';
+
+.carousel-products {
+
+  &__wrapper {
+    margin-bottom: 20px;
+    margin-top: 12px;
+    background: none;
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+  }
+
+  &__title-wrapper {
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__title-name {
+    font-size: 28px;
+    line-height: 36px;
+    font-weight: 500;
+    color: #212121;
+  }
+
+  &__title-link {
+    color: $blue;
+    font-size: 14px;
+    transition: color .12s ease-out;
+
+    &:hover {
+      color: #c70000;
+    }
+  }
+
+  &__goods {
+    margin-top: 20px;
+  }
+
+  &__goods-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -10px -10px 0;
+  }
+}

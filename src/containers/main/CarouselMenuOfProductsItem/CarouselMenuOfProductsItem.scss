@@ -1,0 +1,25 @@
+.carousel-menu-of-products-item {
+  width: 12.5%;
+  height: 12.5%;
+  flex-shrink: 0;
+  padding: 0 8px;
+
+  &__link {
+    display: block;
+    text-align: center;
+    opacity: 1;
+    transition: opacity .25s ease-out;
+
+    &:hover {
+      opacity: .8;
+    }
+  }
+
+  &__image {
+    display: inline-block;
+    max-height: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    vertical-align: top;
+  }
+}

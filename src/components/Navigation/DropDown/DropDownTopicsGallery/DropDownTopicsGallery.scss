@@ -1,0 +1,20 @@
+@import '../../../../variables';
+
+.topics-gallery {
+  grid-area: menu;
+
+  &__title {
+    height: 36px;
+    color: #222;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 1.29;
+  }
+
+  &__block {
+    width: 100%;
+    margin-top: -8px;
+    overflow: hidden;
+    display: flex;
+  }
+}

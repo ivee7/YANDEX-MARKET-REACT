@@ -1,0 +1,80 @@
+.carousel-advert {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background-color: lightblue;
+
+  &:hover .carousel-advert__button {
+    visibility: visible;
+    opacity: .3;
+  }
+
+  &__button {
+    width: 52px;
+    height: 52px;
+    border-width: 1px;
+    border-radius: 50%;
+    background-color: #e8e8e8;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity .3s linear, background-color .12s ease-out;
+    color: rgb(34, 34, 34);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    &_prev {
+      left: 32px;
+    }
+
+    &_next {
+      right: 32px;
+    }
+
+    &:hover {
+      background-color: #dedede;
+    }
+
+    &:active {
+      background-color: #d1d1d1;
+      transform: translateY(-50%) scale(.97);
+      transition: transform .12s ease-out;
+    }
+  }
+
+  &__dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &__dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin: 0 4px;
+    border-radius: 8px;
+    background-color: #fff;
+    opacity: .5;
+    transition: all .125s ease-out;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &__banner {
+    height: 300px;
+  }
+
+  &__item {
+    display: inline-block;
+    height: 300px;
+    width: 1170px;
+
+    @media (max-width: 1354px) {
+      width: 1000px;
+    }
+  }
+}

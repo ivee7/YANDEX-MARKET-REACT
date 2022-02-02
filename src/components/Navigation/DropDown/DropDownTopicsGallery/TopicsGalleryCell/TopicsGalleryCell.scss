@@ -1,0 +1,67 @@
+@import '../../../../../variables';
+
+.topics-gallery-cell {
+  width: 234px;
+  padding: 32px 32px 0 0;
+
+  &__link {
+    display: block;
+    line-height: 16px;
+    font-size: 14px;
+    font-weight: 700;
+    overflow: hidden;
+    color: #222;
+  }
+
+  &__ul {
+    padding-top: 4px;
+  }
+
+  &__li-link {
+    display: block;
+    margin-top: 8px;
+    line-height: 16px;
+    font-size: 14px;
+    font-weight: 400;
+    overflow: hidden;
+    color: #2b2b2b;
+
+    &:hover {
+      color: $red-hover;
+    }
+  }
+
+  &__more {
+    display: block;
+    line-height: 16px;
+    font-size: 14px;
+    margin-top: 8px;
+    font-weight: 400;
+    color: rgba(0, 0, 0, .4);
+    cursor: pointer;
+    overflow: hidden;
+
+    &:hover .topics-gallery-cell__more-text {
+      color: $red-hover;
+    }
+
+    &:hover .topics-gallery-cell__more-arrow {
+      opacity: .6;
+    }
+  }
+
+  &__more-text {
+    display: inline-block;
+    vertical-align: bottom;
+  }
+
+  &__more-arrow {
+    height: 13px;
+    width: 13px;
+    margin-left: 2px;
+    display: inline-block;
+    vertical-align: bottom;
+    opacity: .4;
+    object-fit: contain;
+  }
+}

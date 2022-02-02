@@ -1,0 +1,38 @@
+.main-basket {
+  position: relative;
+  min-width: 960px;
+
+  &__wrapper {
+    margin-top: 33px;
+    min-height: calc(100vh - 480px);
+  }
+
+  &__outer {
+    margin: 0 auto;
+    padding: 0 8px;
+
+    @media (min-width: 1024px) {
+      width: 908px;
+    }
+
+    @media (min-width: 1120px) {
+      width: 1068px;
+    }
+
+    @media (min-width: 1345px) {
+      width: 1190px;
+    }
+  }
+
+  &__inner {
+    display: flex;
+    flex-wrap: nowrap;
+    margin-left: -16px;
+  }
+
+  &__internal {
+    width: 100%;
+    flex: 0 0 auto;
+    padding-left: 16px;
+  }
+}

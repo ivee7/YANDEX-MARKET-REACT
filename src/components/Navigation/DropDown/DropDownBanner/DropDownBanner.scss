@@ -1,0 +1,32 @@
+.drop-down-banner {
+  grid-area: banner;
+  width: 270px;
+  margin-top: 84px;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    margin: 0 -6px;
+  }
+
+  &__item {
+    width: calc(100% - 12px);
+    height: calc(100% - 12px);
+    margin: 6px;
+  }
+
+  &__link {
+    display: block;
+    padding-bottom: 16px;
+  }
+
+  &__image {
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  @media (max-width: 1336px) {
+    display: none;
+  }
+}

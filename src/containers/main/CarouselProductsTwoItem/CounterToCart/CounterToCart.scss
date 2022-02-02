@@ -1,0 +1,24 @@
+.counter-to-cart {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 40px;
+  min-width: 88px;
+  background-color: #fff;
+  border: 1px solid #dcdcdc;
+  color: #222;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22px;
+
+  &__block {
+    height: 100%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+
+  &__block-span {
+    padding: 0 10px;
+  }
+}

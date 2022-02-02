@@ -1,0 +1,38 @@
+.nav {
+
+  &__wrapper {
+    margin-top: -10px;
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, .06);
+  }
+
+  &__wrapper-inner {
+    width: 100%;
+    min-width: 1000px;
+    padding: 0 52px;
+    background-color: #fff;
+    display: flex;
+    height: 46px;
+    font-size: 14px;
+
+    @media (min-width: 1354px) {
+      padding: 0 67px;
+    }
+  }
+
+  &__one {
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+  }
+
+  &__two {
+    flex-shrink: 0;
+  }
+
+  &__two-wrapper {
+    margin-left: 10px;
+    margin-right: -12px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+}

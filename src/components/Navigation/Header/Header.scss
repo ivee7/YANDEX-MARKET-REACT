@@ -1,0 +1,52 @@
+.header {
+  height: 76px;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  width: 100%;
+  z-index: 1000;
+
+  &__wrapper {
+    width: 100%;
+    min-width: 1000px;
+    padding: 0 52px;
+    display: flex;
+
+    @media (min-width: 1354px) {
+      padding: 0 67px;
+    }
+  }
+
+  &__logo {
+    margin-right: 32px;
+    display: flex;
+    align-items: center;
+  }
+
+  &__basic {
+    width: 100%;
+    display: flex;
+  }
+
+  &__basic-catalogue {
+    margin-right: 12px;
+    display: flex;
+    align-items: center;
+  }
+
+  &__basic-form {
+    margin-right: 32px;
+    flex: 1;
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+    @media (max-width: 1250px) {
+      margin-right: 24px;
+    }
+  }
+
+  &__basic-icons {
+    display: flex;
+  }
+}

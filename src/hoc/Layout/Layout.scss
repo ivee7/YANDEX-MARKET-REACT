@@ -1,0 +1,45 @@
+@import '../../roboto';
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  outline: 0;
+  cursor: pointer;
+  color: #000;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: solid transparent;
+  outline: none;
+  background-color: transparent;
+  user-select: none;
+}
+
+input {
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
+}
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}

@@ -1,0 +1,33 @@
+@import '../../../../variables';
+
+.button-to-cart {
+  height: 40px;
+  padding: 0 16px;
+  border-width: 1px;
+  width: 100%;
+  transition: all .12s ease-out;
+  letter-spacing: 0;
+  background-color: $yellow;
+  border-radius: 4px;
+
+  &:hover {
+    background-color: $yellow-dark-hover;
+  }
+
+  &:active {
+    background-color: $yellow-dark-active;
+    transform: scale(.97);
+  }
+
+  &__title {
+    font-size: 16px;
+    line-height: 38px;
+    color: #212121;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: center;
+    text-align: center;
+  }
+}

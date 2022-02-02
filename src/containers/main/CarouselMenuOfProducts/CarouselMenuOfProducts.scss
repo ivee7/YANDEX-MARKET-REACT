@@ -1,0 +1,23 @@
+.carousel-menu-of-products {
+
+  &__wrapper {
+    margin-top: 28px;
+    position: relative;
+  }
+
+  &__outer {
+    margin: -10px;
+    padding: 10px;
+    overflow: hidden;
+  }
+
+  &__inner {
+    margin: -100px -8px;
+    padding: 100px 0;
+    overflow-y: auto;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    white-space: nowrap;
+  }
+}

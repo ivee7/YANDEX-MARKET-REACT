@@ -1,0 +1,21 @@
+[data-tooltip-like]::after {
+  content: attr(data-tooltip-like);
+  position: absolute;
+  top: -45px;
+  left: -40%;
+  background-color: #000;
+  border-radius: 4px;
+  color: #fff;
+  padding: 8px 12px;
+  font-size: 14px;
+  line-height: 16px;
+  white-space: nowrap;
+  text-align: center;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 100;
+}
+
+[data-tooltip-like]:hover::after {
+  visibility: visible;
+}

@@ -1,0 +1,90 @@
+@keyframes descent {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+//@keyframes folding {
+//  from {
+//    opacity: 1;
+//    transform: translateY(0);
+//    visibility: visible;
+//  }
+//
+//  to {
+//    transform: translateY(-50px);
+//    opacity: 0;
+//  }
+//}
+
+.drop-down {
+  position: absolute;
+  z-index: 101;
+  width: 100%;
+  min-width: 1000px;
+  min-height: 700px;
+  padding: 0 52px;
+  background-color: #fff;
+  visibility: hidden;
+  //animation-name: folding;
+  //animation-duration: .1s;
+  //animation-timing-function: ease-out;
+  //animation-fill-mode: forwards;
+
+  &_emerged {
+    animation-name: descent;
+    animation-duration: .2s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    visibility: visible;
+  }
+
+  &__wrapper {
+    position: relative;
+    display: flex;
+  }
+
+  &__left-ul {
+    width: 256px;
+    height: 100%;
+    margin-left: -9px;
+    padding: 15px 10px 15px 0;
+    border-right: 1px solid rgba(0, 0, 0, .09);
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+  }
+
+  &__right {
+    flex: 1;
+    top: -1px;
+    padding: 0 0 20px 42px;
+    min-height: 620px;
+  }
+
+  &__right-wrapper {
+    padding-top: 32px;
+  }
+
+  &__right-grid {
+    display: grid;
+    grid-template-areas:
+        "menu banner"
+        "menu showcase"
+    ;
+    grid-template-rows: max-content;
+
+    @media (max-width: 1336px) {
+      grid-template-areas:
+        "menu showcase"
+        "menu banner"
+    ;
+    }
+  }
+}
