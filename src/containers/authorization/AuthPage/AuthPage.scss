@@ -1,0 +1,67 @@
+.auth-page {
+  position: relative;
+  width: 100%;
+  min-height: 200px;
+  box-sizing: border-box;
+  background-color: #fff;
+  border-radius: 16px;
+
+  &__link-back {
+    display: inline-block;
+    line-height: 34px;
+    text-align: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .12), 0 1px 1px rgba(0, 0, 0, .1);
+    position: absolute;
+    top: 32px;
+    left: -18px;
+    z-index: 100;
+    transform: scale(1);
+    transition: all .1s ease-out;
+
+    &:hover .auth-page__link-back-text {
+      opacity: .4;
+    }
+
+    &:active {
+      transform: scale(.96);
+    }
+  }
+
+  &__link-back-text {
+    display: inline-block;
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
+    background-image: url('../../../static/images/authorization/arrow-back-24dp.png');
+    background-position: 40%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    opacity: .3;
+  }
+
+  &__promo-text {
+    position: absolute;
+    width: 100%;
+    z-index: 10;
+    color: #fff;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 16px;
+  }
+
+  &__promo-text-link {
+    display: block;
+    margin-top: 5px;
+    text-align: center;
+    font-weight: 700;
+    color: #fff;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

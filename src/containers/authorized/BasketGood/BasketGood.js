@@ -1,12 +1,16 @@
 import React, {Component} from 'react'
 import './BasketGood.scss'
 import HeartSvg from '../../../components/svg/HeartSvg'
+import CrossSvg from '../../../components/svg/CrossSvg'
+import MinusSvg from '../../../components/svg/MinusSvg'
+import PlusSvg from '../../../components/svg/PlusSvg'
 
 class BasketGood extends Component {
 
     state = {
         isChecked: true,
-        isFav: false
+        isFav: false,
+        quantity: 1
     }
 
     toggleCheckHandler = () => {
@@ -18,6 +22,12 @@ class BasketGood extends Component {
     toggleFavHandler = () => {
         this.setState({
             isFav: !this.state.isFav
+        })
+    }
+
+    counterHandler = (value) => {
+        this.setState({
+            quantity: this.state.quantity + value
         })
     }
 
@@ -87,11 +97,7 @@ class BasketGood extends Component {
                                 </div>
                                 <div className='basket-good__del-wrapper'>
                                     <button className='basket-good__del'>
-                                        <img
-                                            className='basket-good__del-image'
-                                            src={require('../../../static/images/navigation/header/cross.png')}
-                                            alt=''
-                                        />
+                                        <CrossSvg />
                                         <span className='basket-good__del-text'>Удалить</span>
                                     </button>
                                 </div>
@@ -117,14 +123,23 @@ class BasketGood extends Component {
                     </div>
 
                     <div className='basket-good__counter-wrapper'>
-                        <button className='basket-good__counter-button basket-good__counter-button_left'>
-
+                        <button
+                            disabled={this.state.quantity === 1}
+                            onClick={() => this.counterHandler(-1)}
+                            className='basket-good__counter-button basket-good__counter-button_left'>
+                            <span className='basket-good__counter-button-span'>
+                                <MinusSvg className='basket-good__counter-sign' />
+                            </span>
                         </button>
                         <div className='basket-good__counter-number'>
-                            <div>1</div>
+                            <div>{this.state.quantity}</div>
                         </div>
-                        <button className='basket-good__counter-button basket-good__counter-button_right'>
-
+                        <button
+                            onClick={() => this.counterHandler(1)}
+                            className='basket-good__counter-button basket-good__counter-button_right'>
+                            <span className='basket-good__counter-button-span'>
+                                <PlusSvg className='basket-good__counter-sign' />
+                            </span>
                         </button>
                     </div>
                 </div>

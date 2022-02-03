@@ -1,0 +1,36 @@
+.auth-card {
+  padding: 32px;
+  overflow: hidden;
+
+  &__header {
+    padding-bottom: 16px;
+  }
+
+  &__header-logo {
+    display: block;
+    width: 64px;
+    height: 64px;
+    margin: 0 auto;
+    background-image: url('../../../static/images/authorization/yandex_logo.jpg');
+    background-size: contain;
+    background-position: 50%;
+    background-repeat: no-repeat;
+  }
+
+  &__main {
+    position: relative;
+    width: 100%;
+  }
+
+  &__title {
+    margin: 0;
+    color: rgba(0, 0, 0, .9);
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: center;
+    overflow-wrap: break-word;
+    letter-spacing: -1px;
+    word-spacing: -5px;
+  }
+}

@@ -1,0 +1,248 @@
+@import '../../../variables';
+
+.auth-form {
+
+  &__user {
+    margin: 40px 0 16px 0;
+  }
+
+  &__user-link {
+    color: #222426;
+    outline: none;
+    height: 52px;
+    padding: 8px 30px 8px 12px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    user-select: none;
+    background-color: #eceef2;
+    border-radius: 8px;
+    transition: background-color .15s linear;
+
+    &:hover {
+      background-color: #dbdbdb;
+    }
+
+    &:hover .auth-form__user-info::after {
+      opacity: 1;
+    }
+  }
+
+  &__user-avatar {
+    background-image: url('../../../static/images/authorization/portret.jpg');
+    background-position: 50%;
+    background-size: contain;
+    display: block;
+    width: 36px;
+    height: 36px;
+    margin-right: 12px;
+    border-radius: 50%;
+  }
+
+  &__user-info {
+    max-width: 205px;
+    display: flex;
+    flex-direction: column;
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 18px;
+      right: 12px;
+      width: 16px;
+      height: 16px;
+      background-image: url('../../../static/images/authorization/arrow-down-36dp.png');
+      background-position: 50%;
+      background-repeat: no-repeat;
+      background-size: contain;
+      opacity: .3;
+      transition: opacity .15s linear;
+    }
+  }
+
+  &__user-name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  &__user-mail {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #939cb0;
+    font-size: 13px;
+    line-height: 16px;
+  }
+
+  ///////////////////////////////////////////////////
+
+  &__password {
+    margin-bottom: 24px;
+  }
+
+  &__pasword-label-field {
+    margin-bottom: 4px;
+  }
+
+  &__password-label {
+    color: #939cb0;
+    font-size: 14px;
+    line-height: 18px;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  &__password-input-wrapper {
+    position: relative;
+    width: 100%;
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  &__password-input {
+    color: #000;
+    width: 100%;
+    border: solid transparent;
+    height: 44px;
+    border-width: 2px 44px 2px 0;
+    padding-bottom: 9px;
+    padding-top: 6px;
+    font-size: 24px;
+    line-height: 28px;
+    font-weight: 700;
+
+    &::-webkit-input-placeholder {
+      opacity: .3;
+      letter-spacing: 4px;
+    }
+
+    &:focus .auth-form__password-border {
+      border-bottom: 1px solid #ffd21f;
+    }
+  }
+
+  &__password-view {
+    position: absolute;
+    right: 0;
+    top: 8px;
+    width: 30px;
+    height: 30px;
+    z-index: 10;
+    padding: 1px 6px;
+    border: none;
+    cursor: pointer;
+    background-image: url('../../../static/images/authorization/visibility_black_24dp.png');
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: contain;
+    opacity: .3;
+    overflow: hidden;
+    transition: opacity .3s;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &__password-border {
+    border-bottom: 1px solid #d4d8e0;
+    border-radius: 2px;
+    transition: border-bottom-color .2s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  }
+
+  &__password-help {
+    margin-top: 10px;
+  }
+
+  &__password-help-link {
+    color: $blue;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color .15s linear;
+
+    &:hover {
+      color: $red-dark-hover;
+    }
+  }
+
+  ///////////////////////////////////////////////////
+
+  &__submit-area {
+    margin-top: 16px;
+  }
+
+  &__submit-button {
+    color: #000;
+    height: 44px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 44px;
+    width: 100%;
+    outline: 0;
+    border-width: 0;
+    background-color: $yellow;
+    border-radius: 8px;
+    transform: scale(1);
+    transition: transform .1s ease-out, background-color .15s linear;
+
+    &:hover {
+      background-color: #fac000;
+    }
+
+    &:active {
+      transform: scale(.96);
+    }
+  }
+
+  &__submit-text {
+    margin: 0 20px;
+  }
+
+  ///////////////////////////////////////////////////
+
+  &__qr-area {
+    margin-top: 16px;
+  }
+
+  &__qr-button {
+    box-sizing: border-box;
+    color: #000;
+    height: 44px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 44px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    transform: scale(1);
+    transition: transform .1s ease-out, background-color .15s linear;
+
+    &:hover {
+      background-color: #f7f7f7;
+    }
+
+    &:active {
+      transform: scale(.96);
+    }
+  }
+
+  &__qr-text {
+    margin: 0 20px;
+  }
+
+  &__qr-icon {
+    display: inline-block;
+    background-image: url('../../../static/images/authorization/qr_code_black_24dp.png');
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: contain;
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+}

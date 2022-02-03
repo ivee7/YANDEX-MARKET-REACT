@@ -219,15 +219,16 @@
   &__del {
     display: flex;
     align-items: center;
-    color: #898f97;
-  }
 
-  &__del-image {
-    width: 20px;
-    height: 20px;
-    fill: currentColor;
-    display: inline-flex;
-    object-fit: contain;
+    & > svg {
+      width: 25px;
+      height: 25px;
+
+      &:first-child {
+        color: #898f97;
+        fill: CurrentColor;
+      }
+    }
   }
 
   &__del-text {
@@ -320,19 +321,53 @@
     background-color: transparent;
     height: 100%;
     border: 1px solid transparent;
-    opacity: .3;
     border-radius: 0 4px 4px 0;
     position: absolute;
     top: 0;
     z-index: 2;
     transition: all .12s ease-out;
 
+    &:active {
+      transform: scale(.9);
+      background-color: #d1d1d1;
+
+      &:hover {
+        background-color: transparent;
+      }
+    }
+
     &_left {
       left: 0;
+
+      &:disabled {
+        opacity: .3;
+        cursor: auto;
+        pointer-events: none;
+      }
     }
 
     &_right {
       right: 0;
+    }
+  }
+
+  &__counter-button-span {
+    font-size: 14px;
+    line-height: 30px;
+    transition: all .12s ease-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__counter-sign {
+    width: 22px;
+    height: 22px;
+    display: inline-block;
+
+    &:first-child {
+      color: #212121;
+      fill: currentColor;
     }
   }
 

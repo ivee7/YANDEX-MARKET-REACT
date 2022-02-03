@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import { Outlet } from 'react-router-dom'
 import './Layout.scss'
 import TopBanner from '../../components/Navigation/TopBanner/TopBanner'
 import Header from '../../components/Navigation/Header/Header'
@@ -42,7 +43,9 @@ class Layout extends Component {
                 <Nav />
 
                 <main>
-                    { this.props.children }
+
+                    <Outlet />
+
                 </main>
 
                 <Footer />

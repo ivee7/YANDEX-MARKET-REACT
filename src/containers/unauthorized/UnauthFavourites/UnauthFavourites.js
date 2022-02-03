@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import './UnauthFavourites.scss'
+import { Link } from 'react-router-dom'
 
 class UnauthFavourites extends Component {
 
@@ -15,9 +16,9 @@ class UnauthFavourites extends Component {
                         Так вы сможете видеть сохранённые товары на любых устройствах. Это удобно!
                     </div>
                     <div className="main-unauth-favourites__link-wrapper">
-                        <a className="main-unauth-favourites__link" href="">
+                        <Link className="main-unauth-favourites__link" to='/auth'>
                             <span className="main-unauth-favourites__link-text">Войти</span>
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </div>

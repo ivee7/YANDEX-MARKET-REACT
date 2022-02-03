@@ -15,7 +15,9 @@ class UnauthOrders extends Component {
                                 <h1 className='main-unauth-orders__title'>Мои заказы</h1>
                                 <div className='main-unauth-orders__link-wrapper'>
                                     Чтобы посмотреть историю своих заказов,
-                                    <a className='main-unauth-orders__link' href=''>&nbsp;авторизируйтесь</a>
+                                    <Link className='main-unauth-orders__link' to='/auth'>
+                                        &nbsp;авторизируйтесь
+                                    </Link>
                                 </div>
                                <Link to='/'>
                                    <button className='main-unauth-orders__button'>
