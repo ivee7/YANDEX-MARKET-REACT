@@ -1,0 +1,60 @@
+@import '../../../../variables';
+
+.unauth-card {
+  text-align: center;
+  padding-top: 40px;
+
+  &__image {
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: contain;
+    width: 211px;
+    height: 162px;
+  }
+
+  &__title {
+    margin-top: 20px;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  &__inscription {
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 12px;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  &__link-wrapper {
+    margin-top: 20px;
+  }
+
+  &__link {
+    border-radius: 4px;
+    line-height: 36px;
+    height: 36px;
+    padding: 0 16px;
+    background-color: $yellow;
+    transition: all .12s ease-out;
+    display: inline-block;
+
+    &:hover {
+      background-color: $yellow-dark-hover;
+    }
+
+    &:active {
+      background-color: $yellow-dark-active;
+      transform: scale(.97);
+    }
+  }
+
+  &__link-text {
+    line-height: 20px;
+    color: #222;
+    font-size: 14px;
+  }
+}
