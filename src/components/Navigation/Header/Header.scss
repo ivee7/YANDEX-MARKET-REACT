@@ -7,13 +7,26 @@
   z-index: 1000;
 
   &__wrapper {
-    width: 100%;
     min-width: 1000px;
     padding: 0 52px;
     display: flex;
 
-    @media (min-width: 1354px) {
+    @media (max-width: 1480px) {
+      width: 100%;
+    }
+ 
+    @media (min-width: 1200px) {
+      padding: 0 76px;
+    }
+
+    @media (min-width: 1300px) {
       padding: 0 67px;
+    }
+
+    @media (min-width: 1480px) {
+      width: 1440px;
+      margin: 0 auto;
+      padding: 0;
     }
   }
 

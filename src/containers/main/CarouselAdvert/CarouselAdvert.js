@@ -1,30 +1,45 @@
 import React, {Component} from 'react'
 import './CarouselAdvert.scss'
+import {Navigation, Pagination, Scrollbar, Autoplay} from 'swiper'
+import {Swiper, SwiperSlide} from 'swiper/react'
+import 'swiper/scss'
+import 'swiper/scss/navigation'
+import 'swiper/scss/pagination'
+import 'swiper/scss/autoplay'
 
 class CarouselAdvert extends Component {
+
+    state = {
+        images: ['slide-one.png', 'slide-two.png', 'slide-three.png', 'slide-four.png', 'slide-five.png', 'slide-six.png']
+    }
 
     render() {
 
         return (
-            <section className="carousel-advert">
-                <ul className="carousel-advert__banner">
-                    <li className="carousel-advert__item">
-                        <a href="#">
-                            <img src="" alt="картинка для рекламы" />
-                        </a>
-                    </li>
-                </ul>
-
-                <button className="carousel-advert__button carousel-advert__button_prev">&#5176;</button>
-                <button className="carousel-advert__button carousel-advert__button_next">&#5171;</button>
-
-                <aside className="carousel-advert__dots">
-                    <a className="carousel-advert__dot" href="#"></a>
-                    <a className="carousel-advert__dot" href="#"></a>
-                    <a className="carousel-advert__dot" href="#"></a>
-                    <a className="carousel-advert__dot" href="#"></a>
-                    <a className="carousel-advert__dot" href="#"></a>
-                </aside>
+            <section className='carousel-advert'>
+                <Swiper
+                    speed={400}
+                    loop={true}
+                    modules={[Navigation, Pagination, Scrollbar, Autoplay]}
+                    navigation
+                    pagination={{clickable: true}}
+                    scrollbar={{draggable: true}}
+                    autoplay={{delay: 6000, disableOnInteraction: false}}
+                >
+                    {this.state.images.map((image, index) => {
+                        return <SwiperSlide key={index}>
+                                    <div className='carousel-advert__item'>
+                                        <a href='#'>
+                                            <img 
+                                                className='carousel-advert__image'
+                                                src={require(`../../../static/images/main/carousel-advert/${image}`)} 
+                                                alt='advert-img' 
+                                            />
+                                        </a>
+                                    </div>
+                                </SwiperSlide>
+                    })}
+                </Swiper>
             </section>
         )
     }

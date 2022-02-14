@@ -1,17 +1,22 @@
 .main {
   width: 100%;
-  min-width: 1170px;
-
-  @media (max-width: 1354px) {
-    min-width: 1000px;
-  }
 
   &__content {
     padding: 0 52px;
-    min-width: 1170px;
+    min-width: 1000px;
 
-    @media (max-width: 1354px) {
-      min-width: 1000px;
+    @media (min-width: 1200px) {
+      padding: 0 76px;
+    }
+
+    @media (min-width: 1300px) {
+      padding: 0 67px;
+    }
+
+    @media (min-width: 1480px) {
+      padding: 0;
+      margin: 0 auto;
+      width: 1440px;
     }
   }
 

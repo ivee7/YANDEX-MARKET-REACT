@@ -1,45 +1,18 @@
 .carousel-advert {
   position: relative;
-  height: 100%;
+  height: 300px;
+  padding: 0;
+  min-width: 1000px;
   width: 100%;
-  background-color: lightblue;
 
-  &:hover .carousel-advert__button {
-    visibility: visible;
-    opacity: .3;
+  @media (min-width: 1480px) {
+    margin: 0 auto;
+    width: 1440px;
   }
 
-  &__button {
-    width: 52px;
-    height: 52px;
-    border-width: 1px;
-    border-radius: 50%;
-    background-color: #e8e8e8;
-    visibility: hidden;
-    opacity: 0;
-    transition: visibility 0s, opacity .3s linear, background-color .12s ease-out;
-    color: rgb(34, 34, 34);
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-
-    &_prev {
-      left: 32px;
-    }
-
-    &_next {
-      right: 32px;
-    }
-
-    &:hover {
-      background-color: #dedede;
-    }
-
-    &:active {
-      background-color: #d1d1d1;
-      transform: translateY(-50%) scale(.97);
-      transition: transform .12s ease-out;
-    }
+  &:hover .swiper-button-prev, &:hover .swiper-button-next {
+    visibility: visible;
+    opacity: .4;
   }
 
   &__dots {
@@ -49,32 +22,93 @@
     transform: translateX(-50%);
   }
 
-  &__dot {
-    display: inline-block;
-    width: 8px;
-    height: 8px;
-    margin: 0 4px;
-    border-radius: 8px;
-    background-color: #fff;
-    opacity: .5;
-    transition: all .125s ease-out;
-
-    &:hover {
-      opacity: 1;
-    }
-  }
-
-  &__banner {
-    height: 300px;
-  }
-
   &__item {
-    display: inline-block;
     height: 300px;
-    width: 1170px;
-
-    @media (max-width: 1354px) {
-      width: 1000px;
-    }
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
+
+  &__image {
+    max-width: 1440px;
+    max-height: 300px;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+.swiper-pagination-horizontal {
+  position: absolute;
+  left: 50% !important;
+  bottom: 20px !important;
+  width: auto !important;
+  transform: translateX(-50%) !important;
+}
+
+.swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet {
+  background-color: #fff;
+  opacity: 0.5;
+  transition: all .125s ease-out;
+}
+
+
+.swiper-button-prev, .swiper-button-next {
+  position: absolute;
+  top: 50%;
+  width: 52px !important;
+  height: 52px !important;
+  border-width: 1px;
+  border-radius: 50%;
+  background-color: #e8e8e8;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity .3s linear, background-color .12s ease-out;
+  color: rgb(34, 34, 34);
+}
+
+.swiper-button-prev:hover {
+  background-color: #dedede;
+}
+
+.swiper-button-next:hover {
+  background-color: #dedede;
+}
+
+.swiper-button-prev {
+  left: 32px !important;
+  background-image: url('../../../static/images/main/arrow_back_black_18dp.png');
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.swiper-button-prev::after {
+  display: none;
+}
+
+.swiper-button-next {
+  right: 32px !important;
+  background-image: url('../../../static/images/main/arrow_forward_black_18dp.png');
+  background-position: 50%;
+  background-repeat: no-repeat;
+}
+
+.swiper-button-next::after {
+  display: none;
+}
+
+.swiper-button-prev:active {
+  background-color: #d1d1d1;
+  transform: scale(.97);
+  transition: transform .12s ease-out;
+}
+
+.swiper-button-next:active {
+  background-color: #d1d1d1;
+  transform: scale(.97);
+  transition: transform .12s ease-out;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1 !important;
 }

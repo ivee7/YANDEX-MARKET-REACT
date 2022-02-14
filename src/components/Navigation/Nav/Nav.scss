@@ -14,8 +14,16 @@
     height: 46px;
     font-size: 14px;
 
-    @media (min-width: 1354px) {
+    @media (min-width: 1200px) {
+      padding: 0 76px;
+    }
+
+    @media (min-width: 1300px) {
       padding: 0 67px;
+    }
+
+    @media (min-width: 1480px) {
+      padding: 0 calc(50% - 720px);
     }
   }
 
