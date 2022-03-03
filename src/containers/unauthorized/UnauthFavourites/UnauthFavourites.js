@@ -2,8 +2,10 @@ import React, {Component} from 'react'
 import './UnauthFavourites.scss'
 import UnauthCard from './UnauthCard/UnauthCard'
 import FavGood from './FavGood/FavGood'
+import {connect} from 'react-redux'
 import favImgOne from '../../../static/images/unauthorized/favourites-one.png'
 import favImgTwo from '../../../static/images/unauthorized/favourites-two.png'
+import { addFavProd, delFavProd } from '../../../store/actions/favourites'
 
 class UnauthFavourites extends Component {
 
@@ -51,4 +53,17 @@ class UnauthFavourites extends Component {
     }
 }
 
-export default UnauthFavourites
+function mapStateToProps(state) {
+    return {
+        fav: state.fav.fav
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        addFavProd: item => dispatch(addFavProd(item)),
+        delFavProd: id => dispatch(delFavProd(id))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(UnauthFavourites)

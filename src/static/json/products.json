@@ -1,0 +1,63 @@
+[
+    {
+        "type": "menuOfProdOne",
+        "content": [
+            "menu-new-year.png",
+            "menu-present.png",
+            "menu-shoes.png",
+            "menu-house.png",
+            "menu-health.png",
+            "menu-for-men.png",
+            "menu-for-children.png",
+            "menu-electronics.png"
+        ]
+    },
+    {
+        "type": "menuOfProdTwo",
+        "content": {
+            "title": "Детали мужского образа",
+            "categories": [
+                {
+                    "title": "Головные уборы",
+                    "image": "cap.png"
+                },
+                {
+                    "title": "Наручные часы",
+                    "image": "watches.png"
+                },
+                {
+                    "title": "Карманные",
+                    "image": "clocks.png"
+                },
+                {
+                    "title": "Перчатки и варежки",
+                    "image": "glove.png"
+                },
+                {
+                    "title": "Сумки",
+                    "image": "backpack.png"
+                }
+            ]
+        }
+    },
+    {
+        "type": "menuOfProdThree",
+        "content": {
+            "title": "Мужская одежда и аксессуары",
+            "products": [
+                {
+                    "name": "Cort Gold-Edge-NAT",
+                    "vendor": "FOR EVERYONE",
+                    "id": 123,
+                    "price": "105 560",
+                    "prevPrice": "125 560",
+                    "currency": "₽",
+                    "image": "guitar.png",
+                    "href": "#",
+                    "weight": 2,
+                    "variants": "Ещё 13 вариантов"
+                }
+            ]
+        }
+    }
+]

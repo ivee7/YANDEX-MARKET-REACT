@@ -24,7 +24,7 @@ class CarouselAdvert extends Component {
                     navigation
                     pagination={{clickable: true}}
                     scrollbar={{draggable: true}}
-                    autoplay={{delay: 6000, disableOnInteraction: false}}
+                    autoplay={{delay: 6000, disableOnInteraction: false, pauseOnMouseEnter: true}}
                 >
                     {this.state.images.map((image, index) => {
                         return <SwiperSlide key={index}>

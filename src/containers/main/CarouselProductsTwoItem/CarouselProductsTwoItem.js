@@ -4,12 +4,15 @@ import './data-tooltip-like.scss'
 import ButtonToCart from './ButtonToCart/ButtonToCart'
 import CounterToCart from './CounterToCart/CounterToCart'
 import HeartSvg from "../../../components/svg/HeartSvg";
+import {connect} from 'react-redux'
+import { addToCart, delAllFromCart, delFromCart } from '../../../store/actions/cart'
+import { addFavProd, delFavProd } from '../../../store/actions/favourites'
 
 class CarouselProductsTwoItem extends Component {
 
     state = {
         isFav: false,
-        isAdded: false
+        cartQuantity: 0,
     }
 
     toggleFavHandler = () => {
@@ -18,9 +21,17 @@ class CarouselProductsTwoItem extends Component {
         })
     }
 
-    addToCartHandler = () => {
+    addToCartHandler = (item) => {
+        this.props.addToCart(item)
         this.setState({
-            isAdded: true
+            cartQuantity: this.state.cartQuantity += 1
+        })
+    }
+
+    delFromCartHandler = (id) => {
+        this.props.delFromCart(id)
+        this.setState({
+            cartQuantity: this.state.cartQuantity -= 1
         })
     }
 
@@ -119,7 +130,18 @@ class CarouselProductsTwoItem extends Component {
 
                         <div className='carousel-products-two-item__button-wrapper'>
 
-                            {this.state.isAdded ?  <CounterToCart /> : <ButtonToCart addToCart={this.addToCartHandler} />}
+                            {this.state.cartQuantity >= 1 ?  
+                                <CounterToCart
+                                    cartQuantity={this.state.cartQuantity}
+                                    product={this.props.product} 
+                                    addToCart={this.addToCartHandler}
+                                    delFromCart={this.delFromCartHandler}
+                                />
+                                : <ButtonToCart
+                                    product={this.props.product}
+                                    addToCart={this.addToCartHandler} 
+                                />
+                            }
 
                         </div>
 
@@ -130,4 +152,19 @@ class CarouselProductsTwoItem extends Component {
     }
 }
 
-export default CarouselProductsTwoItem
+function mapStateToProps(state) {
+    return {
+        cart: state.cart.cart
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        addToCart: item => dispatch(addToCart(item)),
+        delFromCart: id => dispatch(delFromCart(id)),
+        addFavProd: item => dispatch(addFavProd(item)),
+        delFavProd: id => dispatch(delFavProd(id))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CarouselProductsTwoItem)

@@ -1,38 +1,38 @@
 import React, {Component} from 'react'
-import './UnauthBasket.scss'
+import './EmptyUnauthBasket.scss'
 
-class UnauthBasket extends Component {
+class EmptyUnauthBasket extends Component {
 
     render() {
 
         return (
             <React.Fragment>
-                <div className="unauthorized-basket">
-                    <div className="unauthorized-basket__wrapper">
-                        <div className="unauthorized-basket__inner">
+                <div className='empty-unauth-basket'>
+                    <div className='empty-unauth-basket__wrapper'>
+                        <div className='empty-unauth-basket__inner'>
 
-                            <div className="unauthorized-basket__title">
+                            <div className='empty-unauth-basket__title'>
                                 Войдите в аккаунт
                             </div>
 
-                            <div className="unauthorized-basket__text">
+                            <div className='empty-unauth-basket__text'>
                                 И если вы уже добавляли товары в корзину - они появятся здесь.
                                 <br/>
                                 А новые не потеряются
                             </div>
 
-                            <div className="unauthorized-basket__links">
-                                <div className="unauthorized-basket__block">
-                                    <a href="">
-                                        <button className="unauthorized-basket__enter">
+                            <div className='empty-unauth-basket__links'>
+                                <div className='empty-unauth-basket__block'>
+                                    <a href=''>
+                                        <button className='empty-unauth-basket__enter'>
                                             <span>Войти</span>
                                         </button>
                                     </a>
                                 </div>
 
-                                <div className="unauthorized-basket__block">
-                                    <a href="">
-                                        <button className="unauthorized-basket__stocks">
+                                <div className='empty-unauth-basket__block'>
+                                    <a href=''>
+                                        <button className='empty-unauth-basket__stocks'>
                                             <span>Скидки и акции</span>
                                         </button>
                                     </a>
@@ -51,4 +51,4 @@ class UnauthBasket extends Component {
     }
 }
 
-export default UnauthBasket
+export default EmptyUnauthBasket

@@ -13,7 +13,7 @@ class CarouselProducts extends Component {
                     <div className='carousel-products__title'>
                         <div className='carousel-products__title-wrapper'>
                             <div className='carousel-products__title-name'>
-                                { this.props.data.titleGroup }
+                                { this.props.data.title }
                             </div>
                             <a className='carousel-products__title-link' href=''>смотреть всё</a>
                         </div>

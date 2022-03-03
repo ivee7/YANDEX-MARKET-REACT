@@ -1,0 +1,9 @@
+export const CART_ADD_PROD = 'CART_ADD_PROD'
+export const CART_DEL_PROD = 'CART_DEL_PROD'
+export const CART_DEL_CHECKED = 'CART_DEL_CHECKED'
+export const CART_DEl_PROD_TOTALLY = 'CART_DEl_PROD_TOTALLY'
+export const CART_TOGGLE_CHECKED = 'CART_TOGGLE_CHECKED'
+export const CART_TOGGLE_ALL = 'CART_TOGGLE_ALL'
+
+export const FAV_ADD_PROD = 'FAV_ADD_PROD'
+export const FAV_DEL_PROD = 'FAV_DEL_PROD'
