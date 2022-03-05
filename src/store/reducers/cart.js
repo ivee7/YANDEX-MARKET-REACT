@@ -14,11 +14,15 @@ const initialState = {
     weight: 0
 }
 
+const rooundNumber = (num) => {
+    return Math.floor(num * 100) / 100
+}
+
 const getTotalCheque = (arr) => {
         const checkedItems = arr.filter(prod => prod.isChecked);
         const finalSum = checkedItems.reduce((sum, prod) => sum + prod.cartQuantity * +prod.price, 0);
         const finalQuantity = checkedItems.reduce((sum, prod) => sum + prod.cartQuantity, 0);
-        const finalWeight = checkedItems.reduce((sum, prod) => sum + prod.cartQuantity * prod.weight, 0);
+        const finalWeight = rooundNumber(checkedItems.reduce((sum, prod) => sum + prod.cartQuantity * prod.weight, 0));
         return {
             sum: finalSum,
             quantity: finalQuantity,
