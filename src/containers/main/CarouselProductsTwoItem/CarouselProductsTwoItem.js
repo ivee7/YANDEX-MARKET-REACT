@@ -89,7 +89,7 @@ class CarouselProductsTwoItem extends Component {
 
                                 <div className='carousel-products-two-item__percentage'>
                                     <span className='carousel-products-two-item__percentage-text'>
-                                        100% рекомендуют
+                                        {this.props.product.recommendations}% рекомендуют
                                     </span>
                                 </div>
 
