@@ -15,12 +15,12 @@ class Icons extends Component {
             <div className='icons'>
 
                 <div className='icons__item'>
-                    <Link className='icons__link' to='/notfound'>
+                    <NavLink className={setActive} to='/notfound'>
                         <span className='icons__scores'>
                             <span className='icons__scores-title'>Плюс</span>
                         </span>
                         <span className='icons__item_hidden-span'>Баллы</span>
-                    </Link>
+                    </NavLink>
                 </div>
 
                 <div className='icons__item'>
@@ -40,7 +40,11 @@ class Icons extends Component {
                 <div className='icons__item'>
                     <NavLink className={setActive} to='/favourites' >
                         <div className='icons__block'>
-                            {/*<IconsCounter number={2} />*/}
+                            {this.props.fav.length === 0 ? null :
+                                <IconsCounter
+                                    number={this.props.fav.length} 
+                                />
+                            }
                             <img
                                 className='icons__img'
                                 src={require('../../../../static/images/navigation/header/heart.png')}
@@ -82,7 +86,8 @@ class Icons extends Component {
 
 function mapStateToProps(state) {
     return {
-        cart: state.cart.cart
+        cart: state.cart.cart,
+        fav: state.fav.fav
     }
 }
 

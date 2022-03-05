@@ -7,7 +7,23 @@ import {CART_ADD_PROD,
         } from '../actions/actionTypes'
 
 const initialState = {
-    cart: []
+    cart: [],
+    currency: '₽',
+    sum: 0,
+    quantity: 0,
+    weight: 0
+}
+
+const getTotalCheque = (arr) => {
+        const checkedItems = arr.filter(prod => prod.isChecked);
+        const finalSum = checkedItems.reduce((sum, prod) => sum + prod.cartQuantity * +prod.price, 0);
+        const finalQuantity = checkedItems.reduce((sum, prod) => sum + prod.cartQuantity, 0);
+        const finalWeight = checkedItems.reduce((sum, prod) => sum + prod.cartQuantity * prod.weight, 0);
+        return {
+            sum: finalSum,
+            quantity: finalQuantity,
+            weight: finalWeight
+        }
 }
 
 export default function cartReducer(state = initialState, action) {
@@ -22,14 +38,16 @@ export default function cartReducer(state = initialState, action) {
                 cartPlusQuantity[itemToPlusIndex].cartQuantity += 1
                 return {
                     ...state,
-                    cart: [...cartPlusQuantity]
+                    cart: [...cartPlusQuantity],
+                    ...getTotalCheque(cartPlusQuantity)
                 }
             } else {
                 const tempProd = {...action.item, isChecked: true, cartQuantity: 1};
 
                 return {
                     ...state,
-                    cart: [...state.cart, tempProd]
+                    cart: [...state.cart, tempProd],
+                    ...getTotalCheque([...state.cart, tempProd])
                 }
             }
         case CART_TOGGLE_CHECKED:
@@ -40,7 +58,8 @@ export default function cartReducer(state = initialState, action) {
             cartToggleChecked[toggleCheckedItemIndex].isChecked = !state.cart[toggleCheckedItemIndex].isChecked
             return {
                 ...state,
-                cart: [...cartToggleChecked]
+                cart: [...cartToggleChecked],
+                ...getTotalCheque(cartToggleChecked)
             }
         case CART_TOGGLE_ALL:
             const cartToggleAll = [...state.cart]
@@ -51,7 +70,8 @@ export default function cartReducer(state = initialState, action) {
             }
             return {
                 ...state,
-                cart: [...cartToggleAll]
+                cart: [...cartToggleAll],
+                ...getTotalCheque(cartToggleAll)
             }
         case CART_DEL_PROD:
             const itemToDelIndex = state.cart.findIndex(
@@ -63,12 +83,14 @@ export default function cartReducer(state = initialState, action) {
                 cartMinusQuantity[itemToDelIndex].cartQuantity -= 1
                 return {
                     ...state,
-                    cart: [...cartMinusQuantity]
+                    cart: [...cartMinusQuantity],
+                    ...getTotalCheque(cartMinusQuantity)
                 }
             } else {
                 return {
                     ...state,
-                    cart: [...state.cart.filter(prod => prod.id !== action.id)]
+                    cart: [...state.cart.filter(prod => prod.id !== action.id)],
+                    ...getTotalCheque([...state.cart.filter(prod => prod.id !== action.id)])
                 }
             }
         case CART_DEL_CHECKED:
@@ -76,12 +98,14 @@ export default function cartReducer(state = initialState, action) {
             const uncheckedResults = uncheckedCart.filter(prod => !prod.isChecked)
             return {
                 ...state,
-                cart: [...uncheckedResults]
+                cart: [...uncheckedResults],
+                ...getTotalCheque(uncheckedResults)
             }
         case CART_DEl_PROD_TOTALLY:
             return {
                 ...state,
-                cart: [...state.cart.filter(prod => prod.id !== action.id)]
+                cart: [...state.cart.filter(prod => prod.id !== action.id)],
+                ...getTotalCheque([...state.cart.filter(prod => prod.id !== action.id)])
             }
         default:
             return state

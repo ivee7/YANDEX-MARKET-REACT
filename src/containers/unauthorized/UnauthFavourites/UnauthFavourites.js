@@ -5,12 +5,12 @@ import FavGood from './FavGood/FavGood'
 import {connect} from 'react-redux'
 import favImgOne from '../../../static/images/unauthorized/favourites-one.png'
 import favImgTwo from '../../../static/images/unauthorized/favourites-two.png'
-import { addFavProd, delFavProd } from '../../../store/actions/favourites'
+import {toggleFav} from '../../../store/actions/favourites'
+import {addToCart, delFromCart} from '../../../store/actions/cart'
 
 class UnauthFavourites extends Component {
 
     state = {
-        quantityOfProducts: 1,
         cardOne: {
             title: 'Войдите в учётную запись',
             inscript: 'Так вы сможете видеть сохранённые товары на любых устройствах. Это удобно!',
@@ -29,7 +29,7 @@ class UnauthFavourites extends Component {
             <div className='main-unauth-favourites'>
                 <h1 className='main-unauth-favourites__title'>Избранное</h1>
                 <div>
-                    { this.state.quantityOfProducts === 0
+                    { this.props.fav.length === 0
                     ? <UnauthCard
                             title={this.state.cardOne.title}
                             inscription={this.state.cardOne.inscript}
@@ -38,7 +38,19 @@ class UnauthFavourites extends Component {
                     :
                         <section>
                             <div className='main-unauth-favourites__goods-wrapper'>
-                                <FavGood />
+                                {this.props.fav.map((prod, index) => {
+                                    return (
+                                        <FavGood 
+                                            key={index}
+                                            fav={this.props.fav}
+                                            cart={this.props.cart}
+                                            product={prod}
+                                            addToCart={this.props.addToCart}
+                                            delFromCart={this.props.delFromCart}
+                                            toggleFav={this.props.toggleFav}
+                                        />
+                                     )
+                                })}
                             </div>
                             <UnauthCard
                                 title={this.state.cardTwo.title}
@@ -55,14 +67,16 @@ class UnauthFavourites extends Component {
 
 function mapStateToProps(state) {
     return {
-        fav: state.fav.fav
+        fav: state.fav.fav,
+        cart: state.cart.cart
     }
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        addFavProd: item => dispatch(addFavProd(item)),
-        delFavProd: id => dispatch(delFavProd(id))
+        toggleFav: item => dispatch(toggleFav(item)),
+        addToCart: item => dispatch(addToCart(item)),
+        delFromCart: id => dispatch(delFromCart(id))
     }
 }
 

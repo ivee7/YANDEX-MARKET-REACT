@@ -10,7 +10,7 @@ import {    addToCart,
             delFromCart,
             delProdTotally
         } from '../../../store/actions/cart'
-import { addFavProd, delFavProd } from '../../../store/actions/favourites'
+import { toggleFav } from '../../../store/actions/favourites'
 
 class FilledBasket extends Component {
 
@@ -65,12 +65,12 @@ class FilledBasket extends Component {
                     <div className='filled-basket__goods'>
                         <BasketGoods 
                             cart={this.props.cart}
+                            fav={this.props.fav}
                             addToCart={this.props.addToCart}
                             toggleCheckSingle={this.props.toggleCheckSingle}
                             delFromCart={this.props.delFromCart}
                             delProdTotally={this.props.delProdTotally}
-                            addFavProd={this.props.addFavProd}
-                            delFavProd={this.props.delFavProd}
+                            toggleFav={this.props.toggleFav}
                         />
                     </div>
 
@@ -78,7 +78,12 @@ class FilledBasket extends Component {
                     </div>
 
                     <div className='filled-basket__products-cheque-wrapper'>
-                        <BasketCheque />
+                        <BasketCheque 
+                            sum={this.props.sum}
+                            currency={this.props.currency}
+                            quantity={this.props.quantity}
+                            weight={this.props.weight}
+                        />
                     </div>
                 </div>
 
@@ -113,7 +118,12 @@ class FilledBasket extends Component {
 
 function mapStateToProps(state) {
     return {
-        cart: state.cart.cart
+        cart: state.cart.cart,
+        currency: state.cart.currency,
+        sum: state.cart.sum,
+        quantity: state.cart.quantity,
+        weight: state.cart.weight,
+        fav: state.fav.fav
     }
 }
 
@@ -125,8 +135,7 @@ function mapDispatchToProps(dispatch) {
         delFromCart: id => dispatch(delFromCart(id)),
         delProdTotally: id => dispatch(delProdTotally(id)),
         delAllChecked: () => dispatch(delAllChecked()),
-        addFavProd: item => dispatch(addFavProd(item)),
-        delFavProd: id => dispatch(delFavProd(id))
+        toggleFav: item => dispatch(toggleFav(item))
     }
 }
 

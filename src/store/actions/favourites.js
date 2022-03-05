@@ -1,16 +1,8 @@
-import {FAV_ADD_PROD, FAV_DEL_PROD} from './actionTypes'
+import {FAV_TOGGLE} from './actionTypes'
 
-
-export function addFavProd(item) {
+export function toggleFav(item) {
     return {
-        type: FAV_ADD_PROD,
+        type: FAV_TOGGLE,
         item
-    }
-}
-
-export function delFavProd(id) {
-    return {
-        type: FAV_DEL_PROD,
-        id
     }
 }

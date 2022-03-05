@@ -5,5 +5,4 @@ export const CART_DEl_PROD_TOTALLY = 'CART_DEl_PROD_TOTALLY'
 export const CART_TOGGLE_CHECKED = 'CART_TOGGLE_CHECKED'
 export const CART_TOGGLE_ALL = 'CART_TOGGLE_ALL'
 
-export const FAV_ADD_PROD = 'FAV_ADD_PROD'
-export const FAV_DEL_PROD = 'FAV_DEL_PROD'
+export const FAV_TOGGLE = 'FAV_TOGGLE'

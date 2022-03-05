@@ -3,8 +3,29 @@ import './FavGood.scss'
 import HeartSvg from '../../../../components/svg/HeartSvg'
 import ToCompareSvg from '../../../../components/svg/ToCompareSvg'
 import {debounce} from '../../../../utils/debounce'
+import {declOfNum} from '../../../../utils/declension'
+import ButtonToCart from '../../../main/CarouselProductsTwoItem/ButtonToCart/ButtonToCart'
+import CounterToCart from '../../../main/CarouselProductsTwoItem/CounterToCart/CounterToCart'
 
 class FavGood extends Component {
+    state = {
+        addedToCompare: false,
+        showLeftImg: true,
+        coordinates: {
+            imageWrapperCenterX: null,
+            imageWrapperX: null
+        }
+    }
+
+    cartQuantityHandler = () => {
+        const isInCart = this.props.cart.find(prod => prod.id === this.props.product.id)
+        if (isInCart) {
+            return isInCart.cartQuantity
+        } else {
+            return false
+        }
+    }
+
     imageWrapper = React.createRef();
 
     componentDidMount() {
@@ -15,22 +36,6 @@ class FavGood extends Component {
                 imageWrapperCenterX: imageWrapperCenterX,
                 imageWrapperX: imageWrapperX
             }
-        })
-    }
-
-    state = {
-        isFav: true,
-        addedToCompare: true,
-        showLeftImg: true,
-        coordinates: {
-            imageWrapperCenterX: null,
-            imageWrapperX: null
-        }
-    }
-
-    toggleFavHandler = () => {
-        this.setState({
-            isFav: !this.state.isFav
         })
     }
 
@@ -63,13 +68,15 @@ class FavGood extends Component {
 
     render() {
 
-        const favActive = this.state.isFav ? 'fav-good__heart-button_active' : ''
+        let isFav = this.props.fav.find(prod => prod.id === this.props.product.id)
+
+        const favActive = isFav ? 'fav-good__heart-button_active' : ''
         const clsFav = `fav-good__heart-button ${favActive}`
 
-        let img = 'guitar-fav-one.png'
+        let img = this.props.product.image
 
         if (!this.state.showLeftImg) {
-            img = 'guitar-fav-two.png'
+            img = this.props.product.imageTwo
         }
 
         return (
@@ -77,9 +84,9 @@ class FavGood extends Component {
 
                 <div className='fav-good__heart'>
                     <button
-                        onClick={this.toggleFavHandler}
+                        onClick={() => this.props.toggleFav(this.props.product)}
                         className={clsFav}
-                        data-tooltip-like={this.state.isFav ? 'Удалить из избранного' : 'Добавить в избранное'}
+                        data-tooltip-like={isFav ? 'Удалить из избранного' : 'Добавить в избранное'}
                     >
                         <span className='fav-good__heart-span'>
                             <HeartSvg />
@@ -101,7 +108,7 @@ class FavGood extends Component {
                     <a className='fav-good__images-toggle-link' href=''>
                         <img
                             className='fav-good__images-toggle-image'
-                            src={require(`../../../../static/images/unauthorized/${img}`)}
+                            src={require(`../../../../static/images/products/${this.props.product.id}/${img}`)}
                             alt='image'
                         />
                         <ul className='fav-good__images-toggle-ul'>
@@ -119,34 +126,45 @@ class FavGood extends Component {
 
                 <div className='fav-good__price-wrapper'>
                     <a href='#' className='fav-good__price'>
-                        <span>12 990&nbsp;₽</span>
+                        <span>{this.props.product.price}&nbsp;{this.props.product.currency}</span>
                     </a>
                 </div>
 
                 <div>
                     <h3 className='fav-good__name'>
                         <a href="#" className='fav-good__name-link'>
-                            <span>Вестерн-гитара YAMAHA F310 Tabacco Brown Sunburst</span>
+                            <span>{this.props.product.name}</span>
                         </a>
                     </h3>
 
                     <a href="" className='fav-good__rating-link'>
                         <div className='fav-good__rating-container'>
                             <div className='fav-good__rating'>
-                                <span>4.5</span>
+                                <span>{this.props.product.rating}</span>
                             </div>
-                            <span className='fav-good__rating-feedbacks'>20 отзывов</span>
+                            <span className='fav-good__rating-feedbacks'>
+                                {this.props.product.reviews}&nbsp;{declOfNum(this.props.product.reviews, ['отзыв', 'отзыва', 'отзывов'])}
+                            </span>
                         </div>
                     </a>
-
                 </div>
 
                 <div className='fav-good__button-and-delivery'>
                     <div className='fav-good__delivery'>Доставка Яндекса, завтра</div>
                     <div className='fav-good__button-wrapper'>
-                        <button className='fav-good__button'>
-                            <span className='fav-good__button-text'>В корзину</span>
-                        </button>
+                        {this.cartQuantityHandler() ?
+                                <CounterToCart
+                                    cartQuantity={this.cartQuantityHandler()}
+                                    product={this.props.product} 
+                                    addToCart={this.props.addToCart}
+                                    delFromCart={this.props.delFromCart}
+                                />  
+                                :
+                                <ButtonToCart
+                                    product={this.props.product}
+                                    addToCart={this.props.addToCart} 
+                                />
+                            }
                     </div>
                 </div>
 
