@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import { Link } from 'react-router-dom'
 import './EmptyUnauthBasket.scss'
 
 class EmptyUnauthBasket extends Component {
@@ -23,11 +24,11 @@ class EmptyUnauthBasket extends Component {
 
                             <div className='empty-unauth-basket__links'>
                                 <div className='empty-unauth-basket__block'>
-                                    <a href=''>
+                                   <Link to='/auth'>
                                         <button className='empty-unauth-basket__enter'>
                                             <span>Войти</span>
                                         </button>
-                                    </a>
+                                   </Link>
                                 </div>
 
                                 <div className='empty-unauth-basket__block'>

@@ -5,41 +5,25 @@ import ButtonToCart from './ButtonToCart/ButtonToCart'
 import CounterToCart from './CounterToCart/CounterToCart'
 import HeartSvg from "../../../components/svg/HeartSvg";
 import {connect} from 'react-redux'
-import { addToCart, delAllFromCart, delFromCart } from '../../../store/actions/cart'
-import { addFavProd, delFavProd } from '../../../store/actions/favourites'
+import { addToCart, delFromCart } from '../../../store/actions/cart'
+import { toggleFav } from '../../../store/actions/favourites'
 
 class CarouselProductsTwoItem extends Component {
-
-    state = {
-        isFav: false,
-        cartQuantity: 0,
-    }
-
-    toggleFavHandler = () => {
-        this.setState({
-            isFav: !this.state.isFav
-        })
-    }
-
-    addToCartHandler = (item) => {
-        this.props.addToCart(item)
-        this.setState({
-            cartQuantity: this.state.cartQuantity += 1
-        })
-    }
-
-    delFromCartHandler = (id) => {
-        this.props.delFromCart(id)
-        this.setState({
-            cartQuantity: this.state.cartQuantity -= 1
-        })
+    
+    cartQuantityHandler = () => {
+        const isInCart = this.props.cart.find(prod => prod.id === this.props.product.id)
+        if (isInCart) {
+            return isInCart.cartQuantity
+        } else {
+            return false
+        }
     }
 
     render() {
 
         const clsFav = ['carousel-products-two-item__like-button']
 
-        if (this.state.isFav) {
+        if (this.props.fav.find(prod => prod.id === this.props.product.id)) {
             clsFav.push('carousel-products-two-item__like-button_active')
         }
 
@@ -56,7 +40,7 @@ class CarouselProductsTwoItem extends Component {
                                         <div className='carousel-products-two-item__photo-internal'>
                                             <img
                                                 className='carousel-products-two-item__photo'
-                                                src={require(`../../../static/images/main/${this.props.product.image}`)}
+                                                src={require(`../../../static/images/products/${this.props.product.id}/${this.props.product.image}`)}
                                                 alt='guitar'
                                             />
                                         </div>
@@ -123,23 +107,27 @@ class CarouselProductsTwoItem extends Component {
                         </a>
 
                         <div className='carousel-products-two-item__like-wrapper'>
-                            <button onClick={this.toggleFavHandler} className={clsFav.join(' ')}>
+                            <button
+                                onClick={() => this.props.toggleFav(this.props.product)} 
+                                className={clsFav.join(' ')}
+                            >
                                 <HeartSvg />
                             </button>
                         </div>
 
                         <div className='carousel-products-two-item__button-wrapper'>
 
-                            {this.state.cartQuantity >= 1 ?  
+                            {this.cartQuantityHandler() ?
                                 <CounterToCart
-                                    cartQuantity={this.state.cartQuantity}
+                                    cartQuantity={this.cartQuantityHandler()}
                                     product={this.props.product} 
-                                    addToCart={this.addToCartHandler}
-                                    delFromCart={this.delFromCartHandler}
-                                />
-                                : <ButtonToCart
+                                    addToCart={this.props.addToCart}
+                                    delFromCart={this.props.delFromCart}
+                                />  
+                                :
+                                <ButtonToCart
                                     product={this.props.product}
-                                    addToCart={this.addToCartHandler} 
+                                    addToCart={this.props.addToCart} 
                                 />
                             }
 
@@ -154,7 +142,8 @@ class CarouselProductsTwoItem extends Component {
 
 function mapStateToProps(state) {
     return {
-        cart: state.cart.cart
+        cart: state.cart.cart,
+        fav: state.fav.fav
     }
 }
 
@@ -162,8 +151,7 @@ function mapDispatchToProps(dispatch) {
     return {
         addToCart: item => dispatch(addToCart(item)),
         delFromCart: id => dispatch(delFromCart(id)),
-        addFavProd: item => dispatch(addFavProd(item)),
-        delFavProd: id => dispatch(delFavProd(id))
+        toggleFav: item => dispatch(toggleFav(item))
     }
 }
 

@@ -48,14 +48,18 @@
                 {
                     "name": "Cort Gold-Edge-NAT",
                     "vendor": "FOR EVERYONE",
-                    "id": 123,
-                    "price": "105 560",
-                    "prevPrice": "125 560",
+                    "id": 100,
+                    "price": "105560",
+                    "prevPrice": "125560",
                     "currency": "₽",
-                    "image": "guitar.png",
+                    "image": "guitar-one.png",
+                    "imageTwo": "guitar-two.png",
                     "href": "#",
                     "weight": 2,
-                    "variants": "Ещё 13 вариантов"
+                    "variants": "Ещё 13 вариантов",
+                    "offers": 2,
+                    "rating": 4.5,
+                    "reviews": 51
                 }
             ]
         }

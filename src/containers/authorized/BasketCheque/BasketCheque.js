@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import {declOfNum} from '../../../utils/declension'
 import './BasketCheque.scss'
 
 class BasketCheque extends Component {
@@ -21,17 +22,19 @@ class BasketCheque extends Component {
                             <div className='basket-cheque__sum-block'>
                                 <span>Итого</span>
                                 <span>
-                                    <span className='basket-cheque__sum'>604</span>
-                                    <span>&thinsp;₽</span>
+                                    <span className='basket-cheque__sum'>{this.props.sum}</span>
+                                    <span>&thinsp;{this.props.currency}</span>
                                 </span>
                             </div>
                             <div className='basket-cheque__total-wrapper'>
                                 <span>
-                                    <span>Всего:&nbsp;2&nbsp;товара&nbsp;</span>
+                                    <span>
+                                        Всего:&nbsp;{this.props.quantity}&nbsp;{declOfNum(this.props.quantity, ['товар', 'товара', 'товаров'])}&nbsp;
+                                    </span>
                                     <span className='basket-cheque__dot'></span>
-                                    <span>&nbsp;0.8кг</span>
+                                    <span>&nbsp;{this.props.weight}кг</span>
                                 </span>
-                                <div>604&nbsp;₽</div>
+                                <div>{this.props.sum}&nbsp;{this.props.currency}</div>
                             </div>
                         </div>
                     </div>

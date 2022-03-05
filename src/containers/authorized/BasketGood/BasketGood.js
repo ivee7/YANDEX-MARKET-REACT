@@ -7,27 +7,19 @@ import PlusSvg from '../../../components/svg/PlusSvg'
 
 class BasketGood extends Component {
 
-    state = {
-        isFav: false
-    }
-
-    toggleFavHandler = () => {
-        this.setState({
-            isFav: !this.state.isFav
-        })
-    }
-
     render() {
 
         const clsCheck = ['basket-good__checkbox']
         const clsFav = ['basket-good__fav']
+        let isFav = false
 
         if (this.props.item.isChecked) {
             clsCheck.push('basket-good__checkbox_checked')
         }
 
-        if (this.state.isFav) {
+        if (this.props.fav.find(prod => prod.id === this.props.item.id)) {
             clsFav.push('basket-good__fav_active')
+            isFav = true
         }
 
         return (
@@ -54,7 +46,7 @@ class BasketGood extends Component {
                             <div className='basket-good__image-inner'>
                                 <img
                                     className='basket-good__img'
-                                    src={require(`../../../static/images/main/${this.props.item.image}`)}
+                                    src={require(`../../../static/images/products/${this.props.item.id}/${this.props.item.image}`)}
                                     alt=''
                                 />
                             </div>
@@ -76,12 +68,14 @@ class BasketGood extends Component {
                             <div className='basket-good__fav-or-del'>
                                 <div className='basket-good__fav-wrapper'>
                                     <button
-                                        onClick={this.toggleFavHandler}
+                                        onClick={() => this.props.toggleFav(this.props.item)}
                                         className={clsFav.join(' ')}
-                                        data-tooltip-like={this.state.isFav ? 'Удалить из избранного' : 'Добавить в избранное'}
+                                        data-tooltip-like={isFav ? 'Удалить из избранного' : 'Добавить в избранное'}
                                     >
                                         <HeartSvg />
-                                        <span className='basket-good__fav-text'>Избранное</span>
+                                        <span className='basket-good__fav-text'>
+                                            {isFav ? 'В избранном' : 'В избранное'}
+                                            </span>
                                     </button>
                                 </div>
                                 <div className='basket-good__del-wrapper'>

@@ -273,29 +273,11 @@
     width: 100%;
   }
 
-  &__button {
-    padding: 8px 12px;
-    background-color: #ffd426;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 4px;
-    height: 36px;
-    transition: all .12s ease-out;
-
-    &:hover {
-      background-color: $yellow;
-    }
-
-    &:active {
-      transform: scale(.97);
-    }
+  &__button-wrapper > div {
+    width: 112px;
   }
 
-  &__button-text {
-    font-size: 13px;
-    letter-spacing: .3px;
-    font-weight: 500;
-    color: #222;
+  &__button-wrapper > button {
+    width: 112px;
   }
 }

@@ -17,12 +17,12 @@ class BasketGoods extends Component {
                                 <BasketGood 
                                     item={item} 
                                     key={index}
+                                    fav={this.props.fav}
                                     addToCart={this.props.addToCart}
                                     toggleCheckSingle={this.props.toggleCheckSingle}
                                     delFromCart={this.props.delFromCart}
                                     delProdTotally={this.props.delProdTotally}
-                                    addFavProd={this.props.addFavProd}
-                                    delFavProd={this.props.delFavProd}
+                                    toggleFav={this.props.toggleFav}
                                  />
                             )
                         })}

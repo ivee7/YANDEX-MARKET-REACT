@@ -1,4 +1,4 @@
-import {FAV_ADD_PROD, FAV_DEL_PROD} from '../actions/actionTypes'
+import {FAV_ADD_PROD, FAV_DEL_PROD, FAV_TOGGLE} from '../actions/actionTypes'
 
 const initialState = {
     fav: []
@@ -6,15 +6,21 @@ const initialState = {
 
 export default function favReducer(state = initialState, action) {
     switch (action.type) {
-        case FAV_ADD_PROD:
-            return {
-                ...state,
-                fav: [...state.fav, action.item]
-            }
-        case FAV_DEL_PROD:
-            return {
-                ...state,
-                fav: [...state.fav.filter(prod => prod.id !== action.id)]
+        case FAV_TOGGLE:
+            const favProdIndex = state.fav.findIndex(
+                prod => prod.id === action.item.id
+            )
+
+            if (favProdIndex >= 0) {
+                return {
+                    ...state,
+                    fav: [...state.fav.filter(prod => prod.id !== action.item.id)]
+                }
+            } else {
+                return {
+                    ...state,
+                    fav: [...state.fav, action.item]
+                }
             }
         default:
             return state
