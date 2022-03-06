@@ -119,10 +119,6 @@
       opacity: .3;
       letter-spacing: 4px;
     }
-
-    &:focus .auth-form__password-border {
-      border-bottom: 1px solid #ffd21f;
-    }
   }
 
   &__password-view {
@@ -135,7 +131,6 @@
     padding: 1px 6px;
     border: none;
     cursor: pointer;
-    background-image: url('../../../static/images/authorization/visibility_black_24dp.png');
     background-repeat: no-repeat;
     background-position: 50%;
     background-size: contain;
@@ -152,6 +147,10 @@
     border-bottom: 1px solid #d4d8e0;
     border-radius: 2px;
     transition: border-bottom-color .2s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+
+    &_focused {
+      border-color: #ffd21f;
+    }
   }
 
   &__password-help {
