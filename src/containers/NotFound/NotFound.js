@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 import './NotFound.scss'
 
 const NotFound = () => (
@@ -16,9 +17,9 @@ const NotFound = () => (
             </section>
             <div className='main-not-found__link'>
                 <div className='main-not-found__link-wrapper'>
-                    <a className='main-not-found__link-to-the-main-page' href=''>
+                    <Link className='main-not-found__link-to-the-main-page' to='/'>
                         <span className='main-not-found__link-span'>На главную</span>
-                    </a>
+                    </Link>
                 </div>
             </div>
         </div>

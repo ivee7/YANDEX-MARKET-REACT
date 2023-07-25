@@ -1,4 +1,5 @@
 YANDEX-MARKET-REACT
+
 Educational implementation of the Yandex online store using ReactJS
 
 Стараюсь выполнить работу визуально и функционально приближенной к оригиналу. Приложение масштабируется, вёрстка резиновая (на десктоп).

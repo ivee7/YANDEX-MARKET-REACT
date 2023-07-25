@@ -14,7 +14,7 @@ class App extends Component {
 
         let routes = (
             <Routes>
-                <Route path='/auth' element={<Auth />} />
+                <Route path='/auth' element={<Auth />}/>
                 <Route path='/' element={<Layout />}>
                     <Route index element={<Main />}/>
                     <Route path='orders' element={<UnauthOrders />}/>
@@ -33,4 +33,4 @@ class App extends Component {
     }
 }
 
-export default App
+export default App;
